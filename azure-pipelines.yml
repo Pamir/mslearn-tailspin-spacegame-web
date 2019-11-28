@@ -14,5 +14,12 @@ variables:
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build 
+  displayName: 'dotnet build'
 
+- task: dependency-check-build-task@5
+  inputs:
+    projectName: 'mslearn'
+    scanPath: '.'
+    format: 'HTML'
+    enableExperimental: true
+    enableVerbose: true
